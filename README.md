@@ -13,22 +13,16 @@ default shortcut:
 
 ### Chenge mode
 
-- When normal-mode, icon of extension is green.
-- When incognito-mode, it is pink.
+- When normal-mode, icon of extension is green ( It looks Japanese bonsai, 盆栽 ! ).
+- When incognito-mode, it is pink ( It looks Japanese sakura, 桜 XD ).
 
 <table>
     <tr>
         <td>
-            <figure>
-                <img src="./images/normal.png" width="200px">
-                <figcaption>It looks Japanese bonsai, 盆栽 !</figcaption>
-            </figure>
+            <img src="./images/normal.png" width="200px">
         </td>
         <td>
-            <figure>
-                <img src="./images/incognito.png" width="200px">
-                <figcaption>It looks Japanese sakura, 桜 :)</figcaption>
-            </figure>
+            <img src="./images/incognito.png" width="200px">
         </td>
     </tr>
 </table>
