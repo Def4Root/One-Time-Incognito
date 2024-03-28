@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "One-Time Incognito",
+    "description": "Allow you to switch between a history recording mode and a pseudo-secret mode",
+    "version": "1.0",
+    "permissions": [
+        "history"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_icon": {
+            "16": "./images/icons/16-normal-icon.png",
+            "24": "./images/icons/24-normal-icon.png",
+            "32": "./images/icons/32-normal-icon.png"
+        }
+    },
+    "icons": {
+        "16": "./images/icons/16-normal-icon.png",
+        "32": "./images/icons/32-normal-icon.png",
+        "48": "./images/icons/48-normal-icon.png",
+        "128": "./images/icons/128-normal-icon.png"
+    },
+    "commands": {
+        "clear_all_history": {
+            "suggested_key": {
+                "default": "Alt+H",
+                "mac": "Alt+H"
+            },
+            "description": "Remove all history."
+        }
+    }
+}
