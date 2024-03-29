@@ -10,6 +10,7 @@
         "service_worker": "background.js"
     },
     "action": {
+        "default_popup": "./popup/popup.html",
         "default_icon": {
             "16": "./images/icons/16-normal-icon.png",
             "24": "./images/icons/24-normal-icon.png",
@@ -23,6 +24,13 @@
         "128": "./images/icons/128-normal-icon.png"
     },
     "commands": {
+        "toggle_mode": {
+            "suggested_key": {
+                "default": "Alt+I",
+                "mac": "Alt+I"
+            },
+            "description": "Toggle mode."
+        },
         "clear_all_history": {
             "suggested_key": {
                 "default": "Alt+H",
