@@ -6,7 +6,6 @@
  */
 
 //? For shortcut commands
-
 let is_incognito_mode = false
 
 chrome.commands.onCommand.addListener((command) => {
@@ -23,6 +22,7 @@ chrome.commands.onCommand.addListener((command) => {
 	}
 })
 
+// Default shortcut: Alt+I
 const set_mode = (is_incognito_mode_ref) => {
 	const icon_path = is_incognito_mode_ref ? '48-incognito-icon.png' : '48-normal-icon.png'
 	chrome.action.setIcon({ path: `./images/icons/${icon_path}` })
@@ -47,3 +47,10 @@ const remove_all_history = () => {
 }
 
 //? For popup screen
+chrome.runtime.onMessage.addListener((message, sender, send_response) => {
+	if (message.type === 'set_mode') {
+		set_mode(message.is_incognito)
+	} else if (message.type === 'get_mode') {
+		send_response(is_incognito_mode)
+	}
+})
