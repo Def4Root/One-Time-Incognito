@@ -1,7 +1,7 @@
 /*
  * One Time Incognito
  *
- * Usage: `/README.md`
+ * Usage:   `/README.md`
  * License: `/LICENSE`
  */
 
@@ -11,8 +11,7 @@ let is_incognito_mode = false
 chrome.commands.onCommand.addListener((command) => {
 	switch (command) {
 		case 'toggle_mode':
-			is_incognito_mode = !is_incognito_mode
-			set_mode(is_incognito_mode)
+			set_mode(!is_incognito_mode)
 			break
 		case 'clear_all_history':
 			remove_all_history()
@@ -24,7 +23,11 @@ chrome.commands.onCommand.addListener((command) => {
 
 // Default shortcut: Alt+I
 const set_mode = (is_incognito_mode_ref) => {
-	const icon_path = is_incognito_mode_ref ? '48-incognito-icon.png' : '48-normal-icon.png'
+	is_incognito_mode = is_incognito_mode_ref
+
+	const icon_path = is_incognito_mode_ref
+		? '48-incognito-icon.png'
+		: '48-normal-icon.png'
 	chrome.action.setIcon({ path: `./images/icons/${icon_path}` })
 
 	if (is_incognito_mode_ref) {
