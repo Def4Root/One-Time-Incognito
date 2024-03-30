@@ -8,6 +8,19 @@
 //? For shortcut commands
 let is_incognito_mode = false
 
+const load_mode = () => {
+	chrome.storage.local.get('is_incognito_mode', (data) => {
+		if (data.is_incognito_mode !== undefined) {
+			is_incognito_mode = data.is_incognito_mode
+			set_mode(is_incognito_mode)
+		} else {
+			chrome.storage.local.set({ is_incognito_mode: is_incognito_mode })
+		}
+	})
+}
+
+load_mode()
+
 chrome.commands.onCommand.addListener((command) => {
 	switch (command) {
 		case 'toggle_mode':
@@ -23,7 +36,7 @@ chrome.commands.onCommand.addListener((command) => {
 
 // Default shortcut: Alt+I
 const set_mode = (is_incognito_mode_ref) => {
-	is_incognito_mode = is_incognito_mode_ref
+	chrome.storage.local.set({ is_incognito_mode: is_incognito_mode_ref })
 
 	const icon_path = is_incognito_mode_ref
 		? '48-incognito-icon.png'
@@ -38,7 +51,6 @@ const set_mode = (is_incognito_mode_ref) => {
 }
 
 const remove_current_history = (history_item) => {
-	console.log(history_item)
 	chrome.history.deleteUrl({ url: history_item.url })
 }
 

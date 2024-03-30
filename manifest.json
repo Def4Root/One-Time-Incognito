@@ -2,12 +2,13 @@
     "manifest_version": 3,
     "name": "One-Time Incognito",
     "description": "Allow you to switch between a history recording mode and a pseudo-secret mode",
-    "version": "1.0",
+    "version": "2.0",
     "permissions": [
-        "history"
+        "history",
+        "storage"
     ],
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "./service-worker.js"
     },
     "action": {
         "default_popup": "./popup/popup.html",
