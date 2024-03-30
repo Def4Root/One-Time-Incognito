@@ -19,12 +19,11 @@ const load_mode = () => {
 	})
 }
 
-load_mode()
-
 chrome.commands.onCommand.addListener((command) => {
 	switch (command) {
 		case 'toggle_mode':
-			set_mode(!is_incognito_mode)
+			is_incognito_mode = !is_incognito_mode
+			set_mode(is_incognito_mode)
 			break
 		case 'clear_all_history':
 			remove_all_history()
@@ -60,6 +59,8 @@ const remove_all_history = () => {
 		console.log('Removed all history.')
 	})
 }
+
+load_mode()
 
 //? For popup screen
 chrome.runtime.onMessage.addListener((message, sender, send_response) => {
