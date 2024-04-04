@@ -69,4 +69,18 @@ chrome.runtime.onMessage.addListener((message, sender, send_response) => {
 	} else if (message.type === 'get_mode') {
 		send_response(is_incognito_mode)
 	}
+
+	switch (message.type) {
+		case 'set_mode':
+			set_mode(message.is_incognito)
+			break
+		case 'get_mode':
+			send_response(is_incognito_mode)
+			break
+		case 'clear_all':
+			remove_all_history()
+			break
+		default:
+			break
+	}
 })
